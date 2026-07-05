@@ -1,80 +1,77 @@
-# Dinox | Portfolio
+# Dinox — Portfolio
 
-Portafolio personal de Dinox — desarrollador mexicano especializado en bots para Discord y addons para Minecraft.
-
----
-
-## Vista previa en Replit
-
-El portafolio corre automáticamente en el flujo de trabajo de Replit. Solo abre la vista previa para verlo.
+Portfolio personal de Dinox, desarrollador de bots para Discord y addons para Minecraft.
 
 ---
 
-## Cómo publicar en GitHub Pages
+## 🚀 Publicar en GitHub Pages
 
-### Paso 1: Construye los archivos estáticos
+### Paso 1 — Sube el repositorio a GitHub
 
-Abre la consola de Replit y ejecuta:
-
-```bash
-# Si tu repositorio se llama "portfolio" (https://tuusuario.github.io/portfolio/)
-GITHUB_REPO_NAME=portfolio pnpm --filter @workspace/portfolio run build:github
-
-# Si usas dominio raíz (https://tuusuario.github.io/)
-pnpm --filter @workspace/portfolio run build:github
-```
-
-Esto genera los archivos listos para GitHub Pages en la carpeta **`docs/`** en la raíz del proyecto.
-
-### Paso 2: Sube tu código a GitHub
+Si aún no lo has hecho, crea un repositorio en GitHub y súbelo:
 
 ```bash
 git init
 git add .
-git commit -m "Mi portafolio - Dinox"
-git branch -M main
+git commit -m "initial commit"
 git remote add origin https://github.com/TU_USUARIO/TU_REPO.git
 git push -u origin main
 ```
 
-### Paso 3: Activa GitHub Pages
+### Paso 2 — Genera el build
+
+Dentro de Replit, abre la terminal y ejecuta:
+
+```bash
+# Si tu repo se llama, por ejemplo, "portfolio":
+GITHUB_REPO_NAME=portfolio pnpm --filter @workspace/portfolio run build:github
+
+# Si el repo se publica en la raíz (usuario.github.io):
+GITHUB_REPO_NAME="" pnpm --filter @workspace/portfolio run build:github
+```
+
+> ⚠️ Cambia `portfolio` por el nombre exacto de tu repositorio de GitHub.
+
+### Paso 3 — Sube el build
+
+```bash
+git add docs/
+git commit -m "build: update github pages"
+git push
+```
+
+### Paso 4 — Activa GitHub Pages
 
 1. Ve a tu repositorio en GitHub.
 2. Entra a **Settings → Pages**.
 3. En **Source**, selecciona:
    - Branch: `main`
-   - Folder: `/docs`
-4. Haz clic en **Save**.
+   - Carpeta: `/docs`
+4. Guarda los cambios.
 
-Tu portafolio estará disponible en:
-`https://TU_USUARIO.github.io/TU_REPO/`
+Tu portfolio estará disponible en:
+
+```
+https://TU_USUARIO.github.io/TU_REPO/
+```
 
 ---
 
-## Estructura del proyecto
+## 🔄 Actualizar el portfolio
 
+Cada vez que hagas cambios, repite los pasos 2 y 3:
+
+```bash
+GITHUB_REPO_NAME=TU_REPO pnpm --filter @workspace/portfolio run build:github
+git add docs/
+git commit -m "build: update"
+git push
 ```
-/
-├── artifacts/
-│   └── portfolio/          # Código fuente del portafolio (React + Vite)
-│       ├── src/            # Componentes y páginas
-│       ├── public/         # Archivos estáticos (avatar, favicon, etc.)
-│       └── vite.github.config.ts  # Config de build para GitHub Pages
-├── docs/                   # Output del build para GitHub Pages
-├── attached_assets/        # Imagen de perfil y otros assets
-└── README.md
-```
-
-## Tecnologías usadas
-
-- React + Vite
-- TypeScript
-- Tailwind CSS
-- Framer Motion (animaciones)
-- Lucide React + React Icons
 
 ---
 
-## Contacto
+## 🛠 Desarrollo local
 
-- Correo: dinoxio@proton.me
+```bash
+pnpm --filter @workspace/portfolio run dev
+```
