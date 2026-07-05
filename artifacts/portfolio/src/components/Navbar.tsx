@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X } from 'lucide-react';
 
@@ -47,14 +47,14 @@ export default function Navbar() {
       <header 
         className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
           isScrolled 
-            ? 'bg-background/80 backdrop-blur-md border-b border-border py-4' 
+            ? 'glass border-none py-4 shadow-lg' 
             : 'bg-transparent py-6'
         }`}
       >
         <div className="max-w-[680px] mx-auto px-6 lg:px-0 flex items-center justify-between">
           <a 
             href="#inicio" 
-            className="font-serif italic text-xl tracking-wide text-foreground hover:text-primary transition-colors"
+            className="font-serif italic text-2xl tracking-wide text-foreground hover:text-white/80 transition-colors"
           >
             Dinox.
           </a>
@@ -67,8 +67,8 @@ export default function Navbar() {
                 href={item.href}
                 className={`text-sm tracking-wide transition-colors font-light ${
                   activeSection === item.href.substring(1)
-                    ? 'text-primary'
-                    : 'text-muted-foreground hover:text-foreground'
+                    ? 'text-white'
+                    : 'text-muted-foreground hover:text-white'
                 }`}
               >
                 {item.name}
@@ -103,7 +103,7 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 w-[260px] bg-background border-l border-border z-50 flex flex-col p-8 md:hidden shadow-2xl"
+              className="fixed top-0 right-0 bottom-0 w-[260px] glass z-50 flex flex-col p-8 md:hidden shadow-2xl"
             >
               <div className="flex justify-end mb-12">
                 <button 
@@ -122,8 +122,8 @@ export default function Navbar() {
                     onClick={() => setMobileMenuOpen(false)}
                     className={`text-lg font-serif italic tracking-wide transition-colors ${
                       activeSection === item.href.substring(1)
-                        ? 'text-primary'
-                        : 'text-muted-foreground hover:text-foreground'
+                        ? 'text-white'
+                        : 'text-muted-foreground hover:text-white'
                     }`}
                   >
                     {item.name}

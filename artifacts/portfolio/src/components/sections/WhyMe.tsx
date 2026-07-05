@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 
 const reasons = [
@@ -16,12 +15,10 @@ export default function WhyMe() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
         className="space-y-12"
       >
-        <div className="font-mono text-[10px] sm:text-xs tracking-widest text-muted-foreground uppercase">
-          06 &mdash; ¿Por qué conmigo?
-        </div>
+        <h2 className="text-2xl sm:text-3xl font-serif text-foreground">¿Por qué conmigo?</h2>
 
         <div className="space-y-8">
           {reasons.map((reason, idx) => (

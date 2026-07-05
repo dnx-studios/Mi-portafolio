@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 
 export default function Services() {
@@ -8,14 +7,12 @@ export default function Services() {
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
         className="space-y-12"
       >
-        <div className="font-mono text-[10px] sm:text-xs tracking-widest text-muted-foreground uppercase">
-          04 &mdash; Servicios
-        </div>
+        <h2 className="text-2xl sm:text-3xl font-serif text-foreground">Servicios</h2>
 
-        <div className="space-y-16">
+        <div className="glass rounded-2xl p-8 sm:p-12 space-y-16">
           <div className="space-y-4">
             <h3 className="text-2xl font-serif text-foreground">Bots para Discord</h3>
             <p className="font-light text-muted-foreground leading-loose">

@@ -19,33 +19,35 @@ export default function Hero() {
   return (
     <section 
       id="inicio" 
-      className="min-h-screen pt-32 pb-24 flex flex-col justify-center w-full"
+      className="min-h-screen pt-32 pb-24 flex flex-col justify-center w-full items-center text-center sm:items-start sm:text-left"
     >
       <motion.div
         variants={containerVariants}
         initial="hidden"
         animate="visible"
-        className="space-y-8"
+        className="space-y-8 flex flex-col items-center sm:items-start"
       >
-        <motion.div variants={itemVariants} className="flex items-center gap-4">
-          <div className="w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border border-border shrink-0">
-            <img 
-              src={avatarUrl} 
-              alt="Dinox" 
-              className="w-full h-full object-cover grayscale opacity-80 hover:grayscale-0 hover:opacity-100 transition-all duration-700"
-              onError={(e) => {
-                const target = e.target as HTMLImageElement;
-                target.style.display = 'none';
-                target.parentElement!.innerHTML = '<div class="w-full h-full flex items-center justify-center text-xs font-serif bg-white/5">D</div>';
-              }}
-            />
+        <motion.div variants={itemVariants} className="flex flex-col items-center sm:items-start gap-4">
+          <div className="avatar-ring flex-shrink-0">
+            <div className="w-32 h-32 sm:w-40 sm:h-40 rounded-full overflow-hidden bg-black flex items-center justify-center">
+              <img 
+                src={avatarUrl} 
+                alt="Dinox" 
+                className="w-full h-full object-cover"
+                onError={(e) => {
+                  const target = e.target as HTMLImageElement;
+                  target.style.display = 'none';
+                  target.parentElement!.innerHTML = '<div class="text-3xl font-serif text-white/50">D</div>';
+                }}
+              />
+            </div>
           </div>
           <div className="font-mono text-[10px] sm:text-xs tracking-widest text-muted-foreground uppercase">
             Desarrollador · México · 17 años
           </div>
         </motion.div>
 
-        <motion.div variants={itemVariants} className="space-y-1 sm:space-y-2">
+        <motion.div variants={itemVariants} className="space-y-2">
           <h1 className="text-5xl sm:text-6xl md:text-7xl font-serif text-foreground leading-tight tracking-tight">
             Dinox
           </h1>
@@ -58,16 +60,16 @@ export default function Hero() {
           Convirtiendo ideas en proyectos funcionales.
         </motion.p>
 
-        <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-start sm:items-center gap-4 pt-6">
+        <motion.div variants={itemVariants} className="flex flex-col sm:flex-row items-center gap-4 pt-6 w-full sm:w-auto">
           <a 
             href="#proyectos" 
-            className="w-full sm:w-auto px-6 py-3 border border-primary/40 text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 text-sm tracking-wide font-medium text-center"
+            className="glass w-full sm:w-auto px-6 py-3 rounded-lg text-white border border-white/20 hover:bg-white/10 hover:border-white/30 transition-all duration-300 text-sm tracking-wide font-medium text-center"
           >
             Ver proyectos
           </a>
           <a 
             href="#contacto" 
-            className="w-full sm:w-auto px-6 py-3 border border-border text-foreground hover:border-white/30 transition-all duration-300 text-sm tracking-wide font-medium text-center"
+            className="glass w-full sm:w-auto px-6 py-3 rounded-lg text-foreground hover:bg-white/5 hover:border-white/20 transition-all duration-300 text-sm tracking-wide font-medium text-center"
           >
             Contactar
           </a>

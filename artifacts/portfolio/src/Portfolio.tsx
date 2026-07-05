@@ -11,7 +11,7 @@ import Contact from './components/sections/Contact';
 
 function Portfolio() {
   return (
-    <div className="min-h-[100dvh] bg-background text-foreground">
+    <div className="grid-bg min-h-[100dvh] text-foreground">
       <Navbar />
 
       <main className="w-full flex flex-col items-center">
