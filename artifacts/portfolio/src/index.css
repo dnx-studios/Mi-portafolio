@@ -145,17 +145,17 @@
 }
 
 .avatar-ring {
-  animation: spin-border 4s linear infinite;
-  background: conic-gradient(from var(--angle), transparent 70%, rgba(255,255,255,0.8) 85%, transparent 95%);
+  animation: spin-border 5s linear infinite;
+  background: conic-gradient(from var(--angle), transparent 75%, rgba(255,255,255,0.22) 88%, transparent 96%);
   border-radius: 50%;
   padding: 2px;
 }
 
 .glass {
-  background: rgba(255, 255, 255, 0.04);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.10);
+  background: rgba(255, 255, 255, 0.035);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 @property --border-angle {
@@ -170,8 +170,8 @@
 }
 
 .animated-border-card {
-  animation: border-rotate 6s linear infinite;
-  background: conic-gradient(from var(--border-angle), transparent 80%, rgba(255,255,255,0.6) 90%, transparent 95%);
+  animation: border-rotate 8s linear infinite;
+  background: conic-gradient(from var(--border-angle), transparent 82%, rgba(255,255,255,0.18) 90%, transparent 96%);
   border-radius: 1rem;
   padding: 1px;
 }

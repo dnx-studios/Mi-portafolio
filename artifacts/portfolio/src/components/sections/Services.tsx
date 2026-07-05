@@ -1,30 +1,59 @@
 import { motion } from 'framer-motion';
 
+const discordFeatures = [
+  'Moderación', 'Comandos personalizados', 'Tickets', 'Economía',
+  'Niveles', 'Verificación', 'Logs', 'Automatización',
+  'Integración con APIs', 'Sistemas exclusivos',
+];
+
+const minecraftFeatures = [
+  'Addons básicos', 'Sistemas por comandos',
+  'Eventos personalizados', 'Mecánicas adaptadas',
+];
+
 export default function Services() {
   return (
-    <section id="servicios" className="py-24 sm:py-32 w-full">
+    <section id="servicios" className="py-16 sm:py-24 w-full">
       <motion.div
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-100px" }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-        className="space-y-12"
+        viewport={{ once: true, margin: '-100px' }}
+        transition={{ duration: 0.8, ease: 'easeOut' }}
+        className="space-y-10"
       >
         <h2 className="text-2xl sm:text-3xl font-serif text-foreground">Servicios</h2>
 
-        <div className="glass rounded-2xl p-8 sm:p-12 space-y-16">
-          <div className="space-y-4">
-            <h3 className="text-2xl font-serif text-foreground">Bots para Discord</h3>
-            <p className="font-light text-muted-foreground leading-loose">
-              Moderación <span className="mx-2 sm:mx-3 text-border">·</span> Comandos personalizados <span className="mx-2 sm:mx-3 text-border">·</span> Tickets <span className="mx-2 sm:mx-3 text-border">·</span> Economía <span className="mx-2 sm:mx-3 text-border">·</span> Niveles <span className="mx-2 sm:mx-3 text-border">·</span> Verificación <span className="mx-2 sm:mx-3 text-border">·</span> Logs <span className="mx-2 sm:mx-3 text-border">·</span> Automatización <span className="mx-2 sm:mx-3 text-border">·</span> Integración con APIs <span className="mx-2 sm:mx-3 text-border">·</span> Sistemas exclusivos
-            </p>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {/* Discord */}
+          <div className="glass rounded-2xl p-6 sm:p-8 space-y-5">
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">🤖</span>
+              <h3 className="text-lg font-serif text-foreground">Bots para Discord</h3>
+            </div>
+            <ul className="space-y-2">
+              {discordFeatures.map((f) => (
+                <li key={f} className="flex items-center gap-2 text-sm text-muted-foreground font-light">
+                  <span className="w-1 h-1 rounded-full bg-white/25 shrink-0" />
+                  {f}
+                </li>
+              ))}
+            </ul>
           </div>
 
-          <div className="space-y-4">
-            <h3 className="text-2xl font-serif text-foreground">Addons para Minecraft</h3>
-            <p className="font-light text-muted-foreground leading-loose">
-              Addons básicos <span className="mx-2 sm:mx-3 text-border">·</span> Sistemas por comandos <span className="mx-2 sm:mx-3 text-border">·</span> Eventos personalizados <span className="mx-2 sm:mx-3 text-border">·</span> Mecánicas adaptadas
-            </p>
+          {/* Minecraft */}
+          <div className="glass rounded-2xl p-6 sm:p-8 space-y-5">
+            <div className="flex items-center gap-3">
+              <span className="text-2xl">⛏️</span>
+              <h3 className="text-lg font-serif text-foreground">Addons para Minecraft</h3>
+            </div>
+            <ul className="space-y-2">
+              {minecraftFeatures.map((f) => (
+                <li key={f} className="flex items-center gap-2 text-sm text-muted-foreground font-light">
+                  <span className="w-1 h-1 rounded-full bg-white/25 shrink-0" />
+                  {f}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </motion.div>
