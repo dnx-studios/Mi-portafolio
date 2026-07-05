@@ -20,7 +20,6 @@ export default function Navbar() {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
 
-      // Simple intersection observer logic for active section
       const sections = navItems.map(item => item.href.substring(1));
       let current = '';
       
@@ -28,18 +27,15 @@ export default function Navbar() {
         const element = document.getElementById(section);
         if (element) {
           const rect = element.getBoundingClientRect();
-          if (rect.top <= 150 && rect.bottom >= 150) {
+          if (rect.top <= 250 && rect.bottom >= 250) {
             current = section;
             break;
           }
         }
       }
       
-      if (current) {
-        setActiveSection(current);
-      } else if (window.scrollY < 100) {
-        setActiveSection('inicio');
-      }
+      if (current) setActiveSection(current);
+      else if (window.scrollY < 100) setActiveSection('inicio');
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -49,42 +45,32 @@ export default function Navbar() {
   return (
     <>
       <header 
-        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-300 ${
+        className={`fixed top-0 left-0 right-0 z-40 transition-all duration-500 ${
           isScrolled 
-            ? 'bg-background/80 backdrop-blur-md border-b border-white/10 py-3' 
-            : 'bg-transparent py-5'
+            ? 'bg-background/80 backdrop-blur-md border-b border-border py-4' 
+            : 'bg-transparent py-6'
         }`}
       >
-        <div className="max-w-6xl mx-auto px-6 flex items-center justify-between">
+        <div className="max-w-[680px] mx-auto px-6 lg:px-0 flex items-center justify-between">
           <a 
             href="#inicio" 
-            className="font-display font-bold text-xl tracking-tighter flex items-center gap-2 group"
+            className="font-serif italic text-xl tracking-wide text-foreground hover:text-primary transition-colors"
           >
-            <span className="w-8 h-8 rounded bg-primary/10 border border-primary/30 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
-              <span className="font-mono text-lg font-bold">D</span>
-            </span>
-            <span>Dinox<span className="text-primary">.</span></span>
+            Dinox.
           </a>
 
           {/* Desktop Nav */}
-          <nav className="hidden md:flex items-center gap-1">
+          <nav className="hidden md:flex items-center gap-6">
             {navItems.map((item) => (
               <a
                 key={item.name}
                 href={item.href}
-                className={`px-4 py-2 rounded-md text-sm font-medium transition-colors relative ${
+                className={`text-sm tracking-wide transition-colors font-light ${
                   activeSection === item.href.substring(1)
                     ? 'text-primary'
                     : 'text-muted-foreground hover:text-foreground'
                 }`}
               >
-                {activeSection === item.href.substring(1) && (
-                  <motion.div
-                    layoutId="navbar-active"
-                    className="absolute inset-0 bg-primary/10 rounded-md -z-10"
-                    transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
-                  />
-                )}
                 {item.name}
               </a>
             ))}
@@ -94,10 +80,9 @@ export default function Navbar() {
           <button 
             className="md:hidden text-foreground p-2 -mr-2"
             onClick={() => setMobileMenuOpen(true)}
-            aria-label="Abrir menú de navegación"
-            aria-expanded={mobileMenuOpen}
+            aria-label="Abrir menú"
           >
-            <Menu className="w-6 h-6" />
+            <Menu className="w-5 h-5 opacity-80 hover:opacity-100 transition-opacity" />
           </button>
         </div>
       </header>
@@ -110,7 +95,7 @@ export default function Navbar() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 bg-background/80 backdrop-blur-sm z-50 md:hidden"
+              className="fixed inset-0 bg-background/90 backdrop-blur-sm z-50 md:hidden"
               onClick={() => setMobileMenuOpen(false)}
             />
             <motion.div
@@ -118,28 +103,27 @@ export default function Navbar() {
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
               transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-              className="fixed top-0 right-0 bottom-0 w-[280px] bg-card border-l border-white/10 z-50 flex flex-col p-6 shadow-2xl md:hidden"
+              className="fixed top-0 right-0 bottom-0 w-[260px] bg-background border-l border-border z-50 flex flex-col p-8 md:hidden shadow-2xl"
             >
-              <div className="flex justify-end mb-8">
+              <div className="flex justify-end mb-12">
                 <button 
                   onClick={() => setMobileMenuOpen(false)}
-                  className="p-2 text-muted-foreground hover:text-foreground bg-white/5 rounded-full"
-                  aria-label="Cerrar menú de navegación"
+                  className="p-2 text-muted-foreground hover:text-foreground transition-colors"
                 >
-                  <X className="w-5 h-5" />
+                  <X className="w-5 h-5 opacity-80" />
                 </button>
               </div>
               
-              <nav className="flex flex-col gap-2">
+              <nav className="flex flex-col gap-6">
                 {navItems.map((item) => (
                   <a
                     key={item.name}
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`px-4 py-3 rounded-lg text-lg font-medium transition-colors ${
+                    className={`text-lg font-serif italic tracking-wide transition-colors ${
                       activeSection === item.href.substring(1)
-                        ? 'bg-primary/10 text-primary border border-primary/20'
-                        : 'text-muted-foreground hover:bg-white/5'
+                        ? 'text-primary'
+                        : 'text-muted-foreground hover:text-foreground'
                     }`}
                   >
                     {item.name}
