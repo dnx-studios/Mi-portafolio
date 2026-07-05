@@ -1,6 +1,6 @@
-# [Project name]
+# Dinox | Portfolio
 
-_Replace the heading above with the project's name, and this line with one sentence describing what this app does for users._
+Portafolio personal de Dinox — desarrollador mexicano de 17 años especializado en bots para Discord y addons para Minecraft.
 
 ## Run & Operate
 
