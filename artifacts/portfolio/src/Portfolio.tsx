@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Hero from './components/sections/Hero';
 import About from './components/sections/About';
 import FeaturedProject from './components/sections/FeaturedProject';
+import UpcomingProject from './components/sections/UpcomingProject';
 import Services from './components/sections/Services';
 import Technologies from './components/sections/Technologies';
 import WhyMe from './components/sections/WhyMe';
@@ -19,6 +20,7 @@ function Portfolio() {
           <Hero />
           <About />
           <FeaturedProject />
+          <UpcomingProject />
           <Services />
           <Technologies />
           <WhyMe />
