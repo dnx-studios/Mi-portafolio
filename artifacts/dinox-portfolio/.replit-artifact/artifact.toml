@@ -1,0 +1,28 @@
+kind = "web"
+previewPath = "/"
+title = "Portafolio Dinox"
+description = "Portafolio personal de Dinox para presentar proyectos, tecnologías y colaboraciones alrededor de Minecraft Bedrock, herramientas web y experiencias digitales."
+version = "1.0.0"
+id = "artifacts/dinox-portfolio"
+router = "path"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 23065
+
+[services.development]
+run = "pnpm --filter @workspace/dinox-portfolio run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/dinox-portfolio", "run", "build" ]
+serve = "static"
+publicDir = "artifacts/dinox-portfolio/dist/public"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "23065"
+BASE_PATH = "/"
