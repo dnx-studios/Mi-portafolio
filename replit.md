@@ -1,12 +1,15 @@
-# Dinox | Portfolio
+# Portafolio Dinox
 
-Portafolio personal de Dinox — desarrollador mexicano de 17 años especializado en bots para Discord y addons para Minecraft.
+Sitio personal de una sola página para presentar el trabajo de Dinox en Minecraft Bedrock, herramientas web y automatizaciones.
 
 ## Run & Operate
 
 - `pnpm --filter @workspace/api-server run dev` — run the API server (port 5000)
 - `pnpm run typecheck` — full typecheck across all packages
 - `pnpm run build` — typecheck + build all packages
+- `pnpm --filter @workspace/dinox-portfolio run dev` — ejecutar el portafolio
+- `pnpm --filter @workspace/dinox-portfolio run typecheck` — comprobar el portafolio
+- `PORT=4173 BASE_PATH=/ pnpm --filter @workspace/dinox-portfolio run build` — generar el build estático para Netlify
 - `pnpm --filter @workspace/api-spec run codegen` — regenerate API hooks and Zod schemas from the OpenAPI spec
 - `pnpm --filter @workspace/db run push` — push DB schema changes (dev only)
 - Required env: `DATABASE_URL` — Postgres connection string
@@ -19,18 +22,28 @@ Portafolio personal de Dinox — desarrollador mexicano de 17 años especializad
 - Validation: Zod (`zod/v4`), `drizzle-zod`
 - API codegen: Orval (from OpenAPI spec)
 - Build: esbuild (CJS bundle)
+- Portafolio: React 19 + Vite 7 + Tailwind CSS 4
 
 ## Where things live
 
-_Populate as you build — short repo map plus pointers to the source-of-truth file for DB schema, API contracts, theme files, etc._
+- `artifacts/dinox-portfolio/` — aplicación web principal
+- `artifacts/dinox-portfolio/src/App.tsx` — contenido e interacciones del portafolio
+- `artifacts/dinox-portfolio/src/index.css` — tokens visuales, layout y motion
+- `artifacts/dinox-portfolio/public/` — favicon, robots y assets para SEO social
+- `netlify.toml` — build y publicación estática en Netlify
 
 ## Architecture decisions
 
-_Populate as you build — non-obvious choices a reader couldn't infer from the code (3-5 bullets)._
+- El portafolio es frontend-only; no necesita API, base de datos ni secretos para funcionar.
+- Netlify publica el build estático del artifact usando el `netlify.toml` de la raíz.
+- La navegación usa anclas de una sola página para mantener el enlace compartible y simple.
+- Las animaciones tienen una ruta reducida mediante `prefers-reduced-motion`.
 
 ## Product
 
-_Describe the high-level user-facing capabilities of this app once they exist._
+- Presenta la identidad y especialidades de Dinox.
+- Permite explorar tecnologías con detalles accesibles.
+- Muestra colaboraciones, el proyecto Workly MC y una vía directa de contacto.
 
 ## User preferences
 
